@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="These instructions will help you in setup server and mobile application.">
 <meta name="keywords" content=" ">
-<title>Koowoo Documentation | Mobimall Documentation</title>
+<title>Boomer Documentation | Boomer Documentation</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,7 +41,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="documentation-mobimall" href="opuslabsin.github.io/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="documentation-boomer" href="http://localhost:4000/feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -145,7 +145,7 @@
         <!-- Content Column -->
         <div class="col-md-12" id="tg-sb-content">
             <div class="post-header">
-   <h1 class="post-title-main">Koowoo Documentation</h1>
+   <h1 class="post-title-main">Boomer Documentation</h1>
 </div>
 
 
@@ -276,16 +276,10 @@ To ensure that you have correct version of nodejs installed, from the command li
         <p><strong>sliderPostTagId</strong> - This is TAG id for posts in home page slider, posts with the tag is mentioned in sliderPostTagId will appear in posts slider on home page.</p>
       </li>
       <li>
-        <p><strong>contactFormId</strong> - Used in contact-form-7/v1/contact-forms/<contactFormId>/feedback to submit contact us forms</contactFormId></p>
-      </li>
-      <li>
         <p><strong>oneSignalAppId</strong> - Your OneSignal app id for notificaitons, setup explained below.</p>
       </li>
       <li>
         <p><strong>oneSignalGPId</strong> - is your firebase messaging senderId and can be found in your firebase console. Go to Cloud messaging section in project settings of your firebase app console: https://console.firebase.google.com/</p>
-      </li>
-      <li>
-        <p><strong>admobBannerId</strong> - is your AdMob banner id. Go to your App in AdMob console, then go to your banner add(create a banner ad if not created) then copy its id. https://apps.admob.com/</p>
       </li>
       <li><strong>socialLinks</strong> - This configuration enables configuration of links to visit when clicking on social media icons in applicaiton’s side navigation panel.</li>
     </ol>
@@ -311,6 +305,38 @@ To ensure that you have correct version of nodejs installed, from the command li
     <ul>
       <li>Instructions on how to setup OneSignal for Ionic <a href="https://documentation.onesignal.com/docs/ionic-sdk-setup">https://documentation.onesignal.com/docs/ionic-sdk-setup</a></li>
     </ul>
+  </li>
+  <li>
+    <h3 id="ads-setup">Ads Setup</h3>
+    <ol>
+      <li><strong>Google AdMob</strong>
+        <ul>
+          <li>Run command <code class="highlighter-rouge">ionic cordova plugin add cordova-plugin-admob-free --save --variable ADMOB_APP_ID="&lt;YOUR_ANDROID_ADMOB_APP_ID_AS_FOUND_IN_ADMOB&gt;"</code> to install admob depedency. Visit <a href="https://github.com/ratson/cordova-plugin-admob-free">https://github.com/ratson/cordova-plugin-admob-free</a> for more information.</li>
+          <li>In <code class="highlighter-rouge">src/app/app.config.ts</code> Configure <code class="highlighter-rouge">adMob</code> object in <code class="highlighter-rouge">ads</code> object as following:</li>
+        </ul>
+        <ul>
+          <li>Set <code class="highlighter-rouge">enabled</code> to <code class="highlighter-rouge">true</code></li>
+          <li>Put your AdMob banner ID in <code class="highlighter-rouge">bannerId</code>. Visit (https://support.google.com/admob/answer/2773509)[https://support.google.com/admob/answer/2773509] for more information on App creation and values.</li>
+        </ul>
+      </li>
+      <li><strong>Facebook Ads</strong> - <strong>Note: Only supported on platform Android</strong>
+        <ul>
+          <li>Run command <code class="highlighter-rouge">ionic cordova plugin add cordova-plugin-codeplay-facebookads-free</code> to install facebook ads plugin. Visit <a href="https://github.com/merbin2012/cordova-plugin-codeplay-facebookads-free#readme">https://github.com/merbin2012/cordova-plugin-codeplay-facebookads-free#readme</a> for more information.</li>
+          <li>In <code class="highlighter-rouge">src/app/app.config.ts</code> Configure <code class="highlighter-rouge">adFacebook</code> object in <code class="highlighter-rouge">ads</code> object as following:</li>
+        </ul>
+        <ul>
+          <li>Set <code class="highlighter-rouge">enabled</code> to <code class="highlighter-rouge">true</code></li>
+          <li>Put your Facebook banner add ID in <code class="highlighter-rouge">bannerIdAndroid</code>. Visit (https://developers.facebook.com/docs/app-ads/app-setup)[https://developers.facebook.com/docs/app-ads/app-setup] for more information on App creation and values.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <h3 id="config-setup">Config Setup</h3>
+    <ol>
+      <li>In line 2, replace <code class="highlighter-rouge">com.yourpackagename</code> in ID parameter with your actual Application ID/Package name, as registered on Firebase Console.</li>
+      <li>In line 3, change <code class="highlighter-rouge">YourAppName</code> with your actual application’s name. This will show in phone’s launcher.</li>
+    </ol>
   </li>
   <li>
     <h3 id="resouces-setup">Resouces Setup</h3>
@@ -389,7 +415,7 @@ Please raise an issue ticket at this link <a href="https://opuslabs.freshdesk.co
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2020 Opus Labs. All rights reserved. <br />
- Site last generated: Jun 25, 2020 <br />
+ Site last generated: Aug 27, 2020 <br />
 <p><img src="images/company_logo_dark.png" alt="Company logo"/></p>
                 </div>
             </div>
